@@ -6,7 +6,7 @@
     "compilerName": "fsc",
     "compile": {
       "includeFiles": [
-        "Playground.fs"
+        "Challange2.fs"
       ]
     }
   },
