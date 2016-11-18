@@ -2,30 +2,33 @@
 
 open System
 
-let Sqrs arr =
-    let Sqr num = num * num
-    [ for num in arr do yield Sqr num ]
+type Shape = 
+    | Circle of float 
+    | Square  of float
+    | Rectangle of float * float
+    
+let pi = 3.141592654
 
-let IsEven num = num % 2 = 0
-
-type GeoCoord = { lat: int; long: int; named:string option }
-
-let PrintGeoCord geoCoord = 
-    let name = 
-        match geoCoord.named with
-        | Some n -> n
-        | None -> "Not sure"
-    printfn "%i %i %s" geoCoord.lat geoCoord.long name     
+let findArea shape = 
+    let area = 
+        match shape with
+        | Circle f -> pi * f * f
+        | Square f -> f * f
+        | Rectangle (h, w)  -> h * w
+    printfn "%g" area
 
 [<EntryPoint>]
 let main argv = 
+    let circle = Circle 12.5
+    let square = Square 4.0
+    let rect = Rectangle (45.3, 12.1)
 
-    Sqrs [|1..100|]    
-    |> List.filter IsEven
-    |> List.iter(fun x -> printfn "%i" x)
+    //printfn "%g" (findArea circle)
+    //printfn "%g" (findArea square)
+    //printfn "%g" (findArea rect)
 
-    { lat = 1; long = 2; named = Some "London" } |> PrintGeoCord
-
-    { lat = 1; long = 2; named = None } |> PrintGeoCord
+    findArea circle
+    findArea square
+    findArea rect
 
     0 // return an integer exit code

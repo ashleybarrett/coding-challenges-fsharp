@@ -6,7 +6,7 @@
     "compilerName": "fsc",
     "compile": {
       "includeFiles": [
-        "Program.fs"
+        "Playground.fs"
       ]
     }
   },
