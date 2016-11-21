@@ -6,7 +6,7 @@
     "compilerName": "fsc",
     "compile": {
       "includeFiles": [
-        "HackerrankChallanges/Challange2.fs"
+        "HackerrankChallanges/Challange8.fs"
       ]
     }
   },
