@@ -13,7 +13,7 @@ let read_and_parse()=
 let main =
     let evalulate times input =
         [0..(times-1)]
-        |> List.fold (fun x y -> x + y) 0
+        |> List.fold(fun x y -> x + y) 0
         |> printfn "%d" 
 
     let input = read_and_parse()
