@@ -12,9 +12,9 @@ let read_and_parse()=
 
 let main =
     let evalulate times input =
-        [0..(times-1)]
-        |> List.fold(fun x y -> x + y) 0
-        |> printfn "%d" 
+        [1..times]
+        |> List.fold(fun x y -> x + (Math.Pow(input, float y)/ float y)) 0.0
+        |> printfn "%f" 
 
     let input = read_and_parse()
     let times = int input.[0]
