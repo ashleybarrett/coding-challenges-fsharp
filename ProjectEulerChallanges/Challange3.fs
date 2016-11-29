@@ -4,28 +4,18 @@ open System
 let main argv = 
     
     //https://projecteuler.net/problem=3
-    let limit = 10
+    let limit = 100
 
-    let isPrime n =
-        match n with
+    let rec isPrime n list = 
+        match list with
         | _ when n = 1 -> false
-        | _ when n = 2 -> true
-        | _ when n % 2 = 0 -> false
-        | _ -> true  
+        | head::_ when n % 2 = 0 -> false
+        | head::_ when n % head = 0 -> false
+        | head::tail -> isPrime n tail
+        | [] -> true
+        | _ -> false
 
     [1..limit]
-    |> List.iter(fun n -> printfn "%i %b" n (isPrime n))
-    //|> List.filter(fun n -> isPrime n)
-    //|> List.iter(fun n -> printfn "%i" n)
-    
-    (*
-    let rec doPrint list =
-        match list with
-        | [] -> ()
-        | head::tail -> 
-            printfn "%i" head 
-            doPrint tail
-
-    doPrint [1..100]
-    *)
+    |> List.filter(fun n -> (isPrime n [3..(n-1)]))
+    |> List.iter(fun n -> printfn "%i" n)
     0 
