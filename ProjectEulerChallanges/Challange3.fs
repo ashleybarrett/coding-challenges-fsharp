@@ -18,4 +18,14 @@ let main argv =
     //|> List.filter(fun n -> isPrime n)
     //|> List.iter(fun n -> printfn "%i" n)
     
+    (*
+    let rec doPrint list =
+        match list with
+        | [] -> ()
+        | head::tail -> 
+            printfn "%i" head 
+            doPrint tail
+
+    doPrint [1..100]
+    *)
     0 
