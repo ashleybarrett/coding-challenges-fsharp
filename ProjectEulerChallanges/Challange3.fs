@@ -9,7 +9,7 @@ let main argv =
     let rec isPrime n list = 
         match list with
         | _ when n = 1 -> false
-        | head::_ when n % 2 = 0 -> false
+        | _ when n % 2 = 0 -> false
         | head::_ when n % head = 0 -> false
         | head::tail -> isPrime n tail
         | [] -> true
