@@ -7,14 +7,6 @@ let main argv =
     //let num: int64 = 600851475143L
     let num = 13195L
 
-    (*
-    let rec largestPrimeFactor numbers = 
-        match numbers with
-        | head::tail when isPrime head tail && num % head = 0L -> true
-        | _::tail -> largestPrimeFactor tail
-        | [] -> false
-        | _ -> false *)
-
     let rec isPrime n list = 
         match list with
         | head::_ when n % head = 0L -> false
