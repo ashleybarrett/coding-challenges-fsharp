@@ -2,12 +2,13 @@ open System
 
 [<EntryPoint>]
 let main argv = 
-    
+
+    //https://projecteuler.net/problem=6
+
     let square n = n * n
 
     let numbers = {1..100}
 
-    //https://projecteuler.net/problem=6
     let sumOfSquares = 
         numbers
         |> Seq.map(fun n -> square n)
