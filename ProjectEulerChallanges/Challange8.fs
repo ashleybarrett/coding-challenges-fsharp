@@ -9,25 +9,14 @@ let main argv =
 
     //let number = "9989"    
 
+    let seriesLength = 13 
+
     let numbers = 
         number
-        |> Seq.toArray
-        |> Array.map(fun n -> Int32.Parse(n.ToString()))
-
-    let seriesLength = 3 
-
-    let maxIndex = numbers.Length - (seriesLength + 2)
-
-    [|0..maxIndex|]
-    |> Array.mapi(fun i n -> 
-        [|0..seriesLength|]
-        |> Array.fold(fun acc elem ->
-            let index = i + elem
-            let value = numbers.[index] 
-            value * acc
-        ) 1      
-    )
-    |> Array.max
-    |> printfn "%i"
+        |> Seq.map(fun n -> UInt64.Parse(n.ToString()))
+        |> Seq.windowed seriesLength
+        |> Seq.map(fun n -> Seq.fold(fun acc elem -> elem * acc) 1UL n)
+        |> Seq.max
+        |> printfn "%i"
 
     0 
