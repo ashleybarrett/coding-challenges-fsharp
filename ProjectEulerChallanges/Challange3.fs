@@ -7,18 +7,12 @@ let main argv =
     let num: int64 = 600851475143L
     //let num = 13195L
 
-    let hasFactors n = 
+    let isPrime n = 
         let upperBound = int64(Math.Sqrt(double(n)))
         let factors =
             [3L..2L..upperBound]
             |> List.filter(fun i -> n % i = 0L)
-        factors.Length = 0
-
-    let isPrime n = 
-        match n with
-        | 1L -> false
-        | 2L -> true
-        | _ -> hasFactors n
+        int64(factors.Length) = 0L
 
     let factors = 
         [3L..2L..num]
