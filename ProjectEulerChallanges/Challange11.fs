@@ -29,7 +29,7 @@ let main argv =
     let verticalSlice startingAtIndex = 
         numbers
         |> Seq.mapi(fun i, n -> (i, n)
-        |> Seq.filter(fun (i, n) -> )
+        |> Seq.filter(fun (i, n) -> i = startingAtIndex || (startingAtIndex + i) )
 
 
     let seriesLength = 4
