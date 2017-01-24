@@ -6,7 +6,7 @@
     "compilerName": "fsc",
     "compile": {
       "includeFiles": [
-        "ProjectEulerChallanges/Challange13.fs"
+        "ProjectEulerChallanges/Challange15.fs"
       ]
     }
   },
