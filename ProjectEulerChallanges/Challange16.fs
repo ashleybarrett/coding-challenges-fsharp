@@ -3,14 +3,14 @@ open System
 [<EntryPoint>]
 let main argv = 
 
-    //https://projecteuler.net/problem=15
-    let num = float 2
+    //https://projecteuler.net/problem=16
+    let num = 2I
     let power = 1000
 
-    pown num power
+    num ** power
     |> string
-    //|> Seq.map(fun n -> int64(n.ToString()))
-    //|> Seq.sum
-    |> printfn "%s"
+    |> Seq.map(fun n -> int(n.ToString()))
+    |> Seq.sum
+    |> printfn "%d"
 
     0  
