@@ -40,7 +40,7 @@ let main argv =
             |> List.tryFind(fun (t,u,w) -> tens = t && units = u)
         
         match specialCase with
-        | Some (t,u,w) -> w + " " + suffix
+        | Some (t,u,w) -> w + suffix
         | _ -> "" 
 
     [1..1000]
@@ -52,14 +52,16 @@ let main argv =
         let tensAndUnits numberOfTens numberOfUnits = (numberOfTens * 10) + numberOfUnits
 
         let thousandsString = valueForCase 0 numberOfThousands "thousand"
-        let hundredsString = valueForCase 0 numberOfHundreds "hundred"
+        let hundredsString = valueForCase 0 numberOfHundreds "hundredand"
         let tensString = valueForCase numberOfTens 0 ""
         let unitsString = valueForCase 0 numberOfUnits ""
 
         [thousandsString;hundredsString;tensString;unitsString]
         |> String.concat ""
+        |> String.length
     )
-    |> List.iter(fun n -> printfn "%s" n)
+    |> List.sum
+    |> printfn "%i"
 
     
 
