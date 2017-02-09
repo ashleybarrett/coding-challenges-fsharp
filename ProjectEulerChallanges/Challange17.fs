@@ -49,14 +49,9 @@ let main argv =
         let numberOfHundreds = (int)n / 100
         let numberOfTens = (int)(n - (numberOfHundreds * 100)) / 10;
         let numberOfUnits = (int)n % 10;
-        //let tensAndUnits = (numberOfTens * 10) + numberOfUnits
 
         let thousandsString = valueForCase 0 numberOfThousands "thousand"
         let hundredsString = valueForCase 0 numberOfHundreds "hundredand"
-
-        //let tensString = valueForCase numberOfTens 0 ""
-        //let unitsString = valueForCase 0 numberOfUnits ""
-
         let tensAndUnitsString = 
             match getSpecialCase numberOfTens numberOfUnits with
             | Some (t,u,w) -> w
