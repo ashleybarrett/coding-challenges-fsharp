@@ -34,32 +34,39 @@ let main argv =
         (9, 0, "ninety")
     ]
 
+    let getSpecialCase tens units = specialCases |> List.tryFind(fun (t,u,w) -> tens = t && units = u)
+
     let valueForCase tens units suffix = 
-        let specialCase = 
-            specialCases
-            |> List.tryFind(fun (t,u,w) -> tens = t && units = u)
+        let specialCase = getSpecialCase tens units
         
         match specialCase with
         | Some (t,u,w) -> w + suffix
         | _ -> "" 
 
-    [1..1000]
+    [1..2]
     |> List.map(fun n -> 
         let numberOfThousands = (int)n / 1000
         let numberOfHundreds = (int)n / 100
         let numberOfTens = (int)(n - (numberOfHundreds * 100)) / 10;
         let numberOfUnits = (int)n % 10;
-        let tensAndUnits numberOfTens numberOfUnits = (numberOfTens * 10) + numberOfUnits
+        //let tensAndUnits = (numberOfTens * 10) + numberOfUnits
 
         let thousandsString = valueForCase 0 numberOfThousands "thousand"
         let hundredsString = valueForCase 0 numberOfHundreds "hundredand"
-        let tensString = valueForCase numberOfTens 0 ""
-        let unitsString = valueForCase 0 numberOfUnits ""
 
-        [thousandsString;hundredsString;tensString;unitsString]
+        //let tensString = valueForCase numberOfTens 0 ""
+        //let unitsString = valueForCase 0 numberOfUnits ""
+
+        let tensAndUnitsString = 
+            match getSpecialCase numberOfTens numberOfUnits with
+            | Some (t,u,w) -> w
+            | _ -> (valueForCase numberOfTens 0 "") + (valueForCase 0 numberOfUnits "")
+
+        [thousandsString;hundredsString;tensAndUnitsString]
         |> String.concat ""
         |> String.length
     )
+    //|> List.iter(fun n -> printfn "%s" n)
     |> List.sum
     |> printfn "%i"
 
