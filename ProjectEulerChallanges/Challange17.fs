@@ -43,7 +43,7 @@ let main argv =
         | Some (t,u,w) -> w + suffix
         | _ -> "" 
 
-    [1..2]
+    [1..1000]
     |> List.map(fun n -> 
         let numberOfThousands = (int)n / 1000
         let numberOfHundreds = (int)n / 100
