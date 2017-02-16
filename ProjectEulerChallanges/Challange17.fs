@@ -16,7 +16,7 @@ let main argv =
         (0, 9, "nine");
         (1, 0, "ten");
         (1, 1, "eleven");
-        (1, 2, "tweleve");
+        (1, 2, "twelve");
         (1, 3, "thirteen");
         (1, 4, "fourteen");
         (1, 5, "fifteen");
@@ -49,22 +49,23 @@ let main argv =
         let numberOfHundreds = (int)n / 100
         let numberOfTens = (int)(n - (numberOfHundreds * 100)) / 10;
         let numberOfUnits = (int)n % 10;
+        let tensAndUnits = (numberOfTens * 10) + numberOfUnits;
 
         let thousandsString = valueForCase 0 numberOfThousands "thousand"
-        let hundredsString = valueForCase 0 numberOfHundreds "hundredand"
+        let hundredsString = valueForCase 0 numberOfHundreds "hundred"
+
+        let hundredsSuffix = if numberOfHundreds > 0 && tensAndUnits > 0 then "and" else ""
+
         let tensAndUnitsString = 
             match getSpecialCase numberOfTens numberOfUnits with
             | Some (t,u,w) -> w
             | _ -> (valueForCase numberOfTens 0 "") + (valueForCase 0 numberOfUnits "")
 
-        [thousandsString;hundredsString;tensAndUnitsString]
+        [thousandsString;hundredsString;hundredsSuffix;tensAndUnitsString]
         |> String.concat ""
         |> String.length
     )
-    //|> List.iter(fun n -> printfn "%s" n)
     |> List.sum
     |> printfn "%i"
-
     
-
     0  
