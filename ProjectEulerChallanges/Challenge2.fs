@@ -7,9 +7,11 @@ let main argv =
 
     Seq.unfold(fun (l, r) ->
         let next = l + r
-        if next <= 4000000 
-            then Some(next, (r, next)) 
-        else None
+
+        match next with
+        | n when n <= 4000 -> Some(next, (r, next)) 
+        | _ -> None
+
     ) (0,1)
     |> Seq.filter(fun n -> n % 2 = 0)
     |> Seq.sum
