@@ -3,7 +3,7 @@ open System
 [<EntryPoint>]
 let main argv = 
 
-    //https://www.hackerrank.com/challenges/diagonal-difference 
+    //https://www.hackerrank.com/challenges/plus-minus 
         
     let size = Console.ReadLine() |> int
     let input = 
