@@ -6,7 +6,7 @@
     "compilerName": "fsc",
     "compile": {
       "includeFiles": [
-        "HackerrankChallanges/AlgorithmsTrack/Challenge1.fs"
+        "HackerrankChallanges/AlgorithmsTrack/Challenge6.fs"
       ]
     }
   },
