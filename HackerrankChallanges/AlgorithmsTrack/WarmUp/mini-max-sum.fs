@@ -3,7 +3,7 @@ open System
 [<EntryPoint>]
 let main argv = 
 
-    //https://www.hackerrank.com/challenges/staircase
+    //https://www.hackerrank.com/challenges/mini-max-sum
 
     let input = 
         let read = Console.ReadLine() |> string

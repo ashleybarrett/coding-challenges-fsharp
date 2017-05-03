@@ -3,7 +3,7 @@ open System
 [<EntryPoint>]
 let main argv = 
 
-    //https://www.hackerrank.com/challenges/staircase
+    //https://www.hackerrank.com/challenges/birthday-cake-candles
 
     let size = Console.ReadLine() |> int
     let input = 
