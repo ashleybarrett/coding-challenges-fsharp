@@ -6,7 +6,7 @@
     "compilerName": "fsc",
     "compile": {
       "includeFiles": [
-        "HackerrankChallanges/AlgorithmsTrack/Implementation/extra-long-factorials.fs"
+        "HackerrankChallanges/AlgorithmsTrack/Implementation/encryption.fs"
       ]
     }
   },

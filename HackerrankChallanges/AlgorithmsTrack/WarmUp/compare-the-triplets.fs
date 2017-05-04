@@ -5,6 +5,8 @@ let main argv =
 
     //https://www.hackerrank.com/challenges/compare-the-triplets
 
+    //Unfinished
+
     let readForPerson = Console.ReadLine() |> string
 
     let split (input:string) = input.Split [|' '|] |> Array.map(int)
