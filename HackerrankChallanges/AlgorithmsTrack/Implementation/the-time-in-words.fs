@@ -19,7 +19,7 @@ let main argv =
         | plusOne when plusOne > 12 -> 1
         | _ -> plusOne
 
-    let getTimeOnWords hour minute = 
+    let getTimeFromWords hour minute = 
         let minutesLeft = 60 - minute
         let nextHour = getNextHour hour
         
@@ -38,6 +38,6 @@ let main argv =
     let hour = Console.ReadLine() |> string |> int
     let minute = Console.ReadLine() |> string |> int
 
-    getTimeOnWords hour minute |> printfn "%s"
+    getTimeFromWords hour minute |> printfn "%s"
 
     0
