@@ -12,16 +12,10 @@ let main argv =
         ]
 
     let getSpecialCase n = specialCases.Item(n)
-
-    let getNextHour hour =
-        let plusOne = hour + 1
-        match plusOne with
-        | plusOne when plusOne > 12 -> 1
-        | _ -> plusOne
-
+    
     let getTimeFromWords hour minute = 
         let minutesLeft = 60 - minute
-        let nextHour = getNextHour hour
+        let nextHour = if hour + 1 > 12 then 1 else hour + 1
         
         let hourAsWord = getSpecialCase hour
         let nextHourAsWord = getSpecialCase nextHour
