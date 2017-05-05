@@ -29,8 +29,8 @@ let main argv =
         | _ when minutesLeft < 30 -> sprintf "%s minutes to %s" (getSpecialCase minutesLeft) nextHourAsWord
         | _ when minutesLeft > 30 -> sprintf "%s minutes past %s" (getSpecialCase minute) hourAsWord
 
-    let hour = Console.ReadLine() |> int
-    let minute = Console.ReadLine() |> int
+    let hour = Console.ReadLine() |> string |> int
+    let minute = Console.ReadLine() |> string |> int
 
     getTimeFromWords hour minute |> printfn "%s"
 
