@@ -6,7 +6,7 @@
     "compilerName": "fsc",
     "compile": {
       "includeFiles": [
-        "HackerrankChallanges/AlgorithmsTrack/Implementation/encryption.fs"
+        "HackerrankChallanges/AlgorithmsTrack/Implementation/the-time-in-words.fs"
       ]
     }
   },
