@@ -1,3 +1,5 @@
+module Biggerisgreater
+
 open System
 
 [<EntryPoint>]
