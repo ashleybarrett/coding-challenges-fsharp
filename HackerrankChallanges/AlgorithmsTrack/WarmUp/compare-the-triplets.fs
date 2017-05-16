@@ -7,8 +7,6 @@ let main argv =
 
     //https://www.hackerrank.com/challenges/compare-the-triplets
 
-    //Unfinished
-
     let input = 
         Seq.init 2 (fun n ->
             (Console.ReadLine() |> string).Split[|' '|] 
