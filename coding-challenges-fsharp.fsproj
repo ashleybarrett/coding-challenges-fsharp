@@ -6,7 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="HackerrankChallanges/AlgorithmsTrack/Implementation/bigger-is-greater.fs" />
+    <!--<Compile Include="HackerrankChallanges/AlgorithmsTrack/Implementation/bigger-is-greater.fs" />-->
+    <Compile Include="HackerrankChallanges/AlgorithmsTrack/WarmUp/compare-the-triplets.fs" />
   </ItemGroup>
 
   <ItemGroup>

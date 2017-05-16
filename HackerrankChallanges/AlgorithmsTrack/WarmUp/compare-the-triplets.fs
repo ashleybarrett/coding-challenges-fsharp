@@ -1,3 +1,5 @@
+module CompareTheTriplets
+
 open System
 
 [<EntryPoint>]
@@ -7,32 +9,25 @@ let main argv =
 
     //Unfinished
 
-    let readForPerson = Console.ReadLine() |> string
+    let input = 
+        Seq.init 2 (fun n ->
+            (Console.ReadLine() |> string).Split[|' '|] 
+            |> Array.map(int) 
+        ) |> Seq.toArray
 
-    let split (input:string) = input.Split [|' '|] |> Array.map(int)
-
-    let numberOfBetterScores personx persony =
-        let numberOfBetterScores = 0
-        
-        personx
-        |> Array.iteri(fun i v -> 
-            (*match v with
-            | _ when v > persony.[i] -> numberOfBetterScores++
-            | _ -> ()*)
-            printfn "%i %i" i v
+    let numberOfBetterScores (alice: array<int>) (bob: array<int>) =
+        alice
+        |> Array.mapi(fun i v -> 
+            match v with
+            | _ when v > bob.[i] -> "a"
+            | _ when v < bob.[i] -> "b"
+            | _ -> ""
         )
 
-        numberOfBetterScores
+    let filteredScores = numberOfBetterScores input.[0] input.[1]
+    let aliceScores = filteredScores |> Array.filter(fun n -> n = "a") |> Array.length
+    let bobScores = filteredScores |> Array.filter(fun n -> n = "b") |> Array.length
 
-
-    let alice = readForPerson
-    printfn "%A" alice
-    let bob = readForPerson
-    printfn "%A lll" bob
-
-    //let aliceScores = numberOfBetterScores alice bob
-    //let bobScores = numberOfBetterScores bob alice
-
-    //printf "%i %i" aliceScores bobScores
+    printf "%i %i" aliceScores bobScores
 
     0

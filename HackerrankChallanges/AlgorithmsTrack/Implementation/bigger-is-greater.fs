@@ -18,7 +18,15 @@ let main argv =
         |> Array.map(string)
         |> Array.toList
 
-    
+
+    let rec wordPerms (charList: List<string>) originalWord = 
+        reduceToWord charList |> printfn "%s"
+        let nextCharList = List.append charList.Tail [charList.Head]
+        let nextWord = reduceToWord nextCharList
+
+        match nextWord with
+        | w when w <> originalWord -> wordPerms nextCharList originalWord
+        | _ -> ()
 
     (*List.unfold(fun ((charList: list<string>), orginalWord) -> 
         let nextCharList = List.append charList.Tail [charList.Head]
@@ -31,5 +39,7 @@ let main argv =
     |> List.map(fun n -> List.reduce(+) n)
     |> List.append [word]
     |> List.iter(fun n -> printfn "%s" n)*)
+
+    wordPerms charsFromWord word
 
     0
