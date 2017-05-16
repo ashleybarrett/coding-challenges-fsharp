@@ -18,7 +18,9 @@ let main argv =
         |> Array.map(string)
         |> Array.toList
 
-    List.unfold(fun ((charList: list<string>), orginalWord) -> 
+    
+
+    (*List.unfold(fun ((charList: list<string>), orginalWord) -> 
         let nextCharList = List.append charList.Tail [charList.Head]
         let nextWord = reduceToWord nextCharList
 
@@ -28,6 +30,6 @@ let main argv =
     ) (charsFromWord, word)
     |> List.map(fun n -> List.reduce(+) n)
     |> List.append [word]
-    |> List.iter(fun n -> printfn "%s" n)
+    |> List.iter(fun n -> printfn "%s" n)*)
 
     0
