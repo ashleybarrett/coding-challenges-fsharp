@@ -8,7 +8,7 @@ let main argv =
     //https://www.hackerrank.com/challenges/bigger-is-greater
 
     //Unfinished
-
+(*
     let reduceToWord charList = charList |> List.reduce(+)
 
     let word = "post"
@@ -36,7 +36,7 @@ let main argv =
         | w when w <> originalWord -> wordPerms nextCharList originalWord
         | _ -> ()
 
-    (*List.unfold(fun ((charList: list<string>), orginalWord) -> 
+    List.unfold(fun ((charList: list<string>), orginalWord) -> 
         let nextCharList = List.append charList.Tail [charList.Head]
         let nextWord = reduceToWord nextCharList
 
@@ -49,6 +49,6 @@ let main argv =
     |> List.iter(fun n -> printfn "%s" n)*)
 
     //wordPerms charsFromWord word
-    takeTail charsFromWord
+    //takeTail charsFromWord
 
     0
