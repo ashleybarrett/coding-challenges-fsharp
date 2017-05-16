@@ -18,6 +18,14 @@ let main argv =
         |> Array.map(string)
         |> Array.toList
 
+    let rec takeTail (charList: list<string>) =
+        match charList with
+        | [] -> ()
+        | _::t -> (
+                reduceToWord t |> printfn "%s"
+                takeTail t
+            )
+
 
     let rec wordPerms (charList: List<string>) originalWord = 
         reduceToWord charList |> printfn "%s"
@@ -40,6 +48,7 @@ let main argv =
     |> List.append [word]
     |> List.iter(fun n -> printfn "%s" n)*)
 
-    wordPerms charsFromWord word
+    //wordPerms charsFromWord word
+    takeTail charsFromWord
 
     0
