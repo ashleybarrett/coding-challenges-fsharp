@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="HackerrankChallanges/AlgorithmsTrack/Implementation/bigger-is-greater.fs" />
+    <Compile Include="HackerrankChallanges/AlgorithmsTrack/Implementation/larrys-array.fs" />
   </ItemGroup>
 
   <ItemGroup>
