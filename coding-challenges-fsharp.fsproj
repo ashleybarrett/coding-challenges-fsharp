@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="HackerrankChallanges/AlgorithmsTrack/Implementation/larrys-array.fs" />
+    <Compile Include="HackerrankChallanges/AlgorithmsTrack/Strings/sherlock-and-valid-string.fs" />
   </ItemGroup>
 
   <ItemGroup>
