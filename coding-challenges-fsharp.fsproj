@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="HackerrankChallanges/AlgorithmsTrack/Strings/bear-and-steady-gene.fs" />
+    <Compile Include="HackerrankChallanges/AlgorithmsTrack/Strings/grading.fs" />
   </ItemGroup>
 
   <ItemGroup>
