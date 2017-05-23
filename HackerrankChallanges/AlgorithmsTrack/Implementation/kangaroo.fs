@@ -21,7 +21,7 @@ let main argv =
     |> List.map snd
     |> List.exists(fun (k1,k2) -> k1 = k2)
     |> (fun n -> 
-        let s =if n then "YES" else "NO" 
+        let s = if n then "YES" else "NO" 
         printfn "%s" s
     )
 
