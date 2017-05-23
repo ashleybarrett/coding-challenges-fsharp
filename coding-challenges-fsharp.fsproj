@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="HackerrankChallanges/AlgorithmsTrack/Implementation/kangaroo.fs" />
+    <Compile Include="HackerrankChallanges/AlgorithmsTrack/Implementation/almost-sorted.fs" />
   </ItemGroup>
 
   <ItemGroup>
