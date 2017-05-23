@@ -1,3 +1,5 @@
+module TheTimeInWords
+
 open System
 
 [<EntryPoint>]

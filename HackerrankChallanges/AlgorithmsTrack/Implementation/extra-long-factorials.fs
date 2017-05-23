@@ -1,3 +1,5 @@
+module ExtraLongFactorials
+
 open System
 
 [<EntryPoint>]

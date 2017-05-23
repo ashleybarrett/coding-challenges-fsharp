@@ -1,3 +1,5 @@
+module Encryption
+
 open System
 
 [<EntryPoint>]

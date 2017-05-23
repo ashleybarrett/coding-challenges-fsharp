@@ -1,3 +1,5 @@
+module Grading
+
 open System
 
 [<EntryPoint>]
