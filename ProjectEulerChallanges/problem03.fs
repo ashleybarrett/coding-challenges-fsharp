@@ -29,6 +29,6 @@ let main argv =
     }
     |> Seq.rev
     |> Seq.head
-    |> printfn "%A"
+    |> printfn "%i"
 
     0
