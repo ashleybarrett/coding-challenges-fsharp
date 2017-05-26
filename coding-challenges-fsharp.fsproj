@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="ProjectEulerChallanges/problem09.fs" />
+    <Compile Include="ProjectEulerChallanges/problem10.fs" />
   </ItemGroup>
 
   <ItemGroup>
