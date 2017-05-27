@@ -3,7 +3,9 @@ open System
 [<EntryPoint>]
 let main argv = 
 
-//https://projecteuler.net/problem=11
+    //https://projecteuler.net/problem=11
+
+    //Unfinished
 
     let size = 20
 
