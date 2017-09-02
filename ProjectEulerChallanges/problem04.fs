@@ -1,7 +1,6 @@
-open System
+module Problem04
 
-[<EntryPoint>]
-let main argv = 
+let solution =
 
     //https://projecteuler.net/problem=4
 
@@ -26,5 +25,3 @@ let main argv =
     }
     |> Seq.max
     |> printfn "%i"
-
-    0

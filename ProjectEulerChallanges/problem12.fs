@@ -1,7 +1,6 @@
-open System
+module Problem12
 
-[<EntryPoint>]
-let main argv = 
+let solution =
 
     //https://projecteuler.net/problem=12
 
@@ -22,5 +21,3 @@ let main argv =
     |> Seq.map(fun x -> [1L..x] |> Seq.sum)
     |> Seq.find(fun x -> getNumberOfDivisors x >= numberOfDivisors)
     |> printfn "%i"
-
-    0

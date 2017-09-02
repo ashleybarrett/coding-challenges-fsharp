@@ -1,7 +1,6 @@
-open System
+module Problem17
 
-[<EntryPoint>]
-let main argv = 
+let solution =
 
     //https://projecteuler.net/problem=17
     
@@ -36,5 +35,3 @@ let main argv =
     )
     |> (+)11 //1000
     |> printfn "%i"
-
-    0

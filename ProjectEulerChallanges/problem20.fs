@@ -1,7 +1,6 @@
-open System
+module Problem20
 
-[<EntryPoint>]
-let main argv = 
+let solution =
 
     //https://projecteuler.net/problem=20
 
@@ -12,5 +11,3 @@ let main argv =
     |> Seq.map(string >> int)
     |> Seq.reduce(+)
     |> printfn "%i"
-
-    0

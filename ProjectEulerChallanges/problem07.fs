@@ -1,7 +1,6 @@
-open System
+module Problem07
 
-[<EntryPoint>]
-let main argv = 
+let solution =
 
     //https://projecteuler.net/problem=7
 
@@ -23,5 +22,3 @@ let main argv =
     }
     |> Seq.item number
     |> printfn "%i"
-
-    0

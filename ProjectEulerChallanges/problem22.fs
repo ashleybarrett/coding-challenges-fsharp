@@ -1,7 +1,6 @@
-open System
+module Problem22
 
-[<EntryPoint>]
-let main argv = 
+let solution =
 
     //https://projecteuler.net/problem=22
 
@@ -22,5 +21,3 @@ let main argv =
     )
     |> Seq.sum
     |> ignore
-
-    0

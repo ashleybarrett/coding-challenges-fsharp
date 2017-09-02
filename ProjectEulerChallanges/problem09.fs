@@ -1,7 +1,6 @@
-open System
+module Problem09
 
-[<EntryPoint>]
-let main argv = 
+let solution =
 
     //https://projecteuler.net/problem=9
 
@@ -21,5 +20,3 @@ let main argv =
     |> Seq.find(fun x -> x |> Seq.sum = number)
     |> Seq.fold(*) 1
     |> printfn "%i"
-
-    0

@@ -1,7 +1,6 @@
-open System
+module Problem08
 
-[<EntryPoint>]
-let main argv = 
+let solution =
 
     //https://projecteuler.net/problem=8
 
@@ -37,5 +36,3 @@ let main argv =
     |> List.map(fun x -> x |> List.reduce(*))
     |> List.max
     |> printfn "%i"
-    
-    0

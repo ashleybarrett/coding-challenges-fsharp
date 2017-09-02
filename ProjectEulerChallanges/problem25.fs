@@ -1,7 +1,6 @@
-open System
+module Problem25
 
-[<EntryPoint>]
-let main argv = 
+let solution =
 
     //https://projecteuler.net/problem=25
 
@@ -23,5 +22,3 @@ let main argv =
     |> fst
     |> (fun x -> printfn "%i" x)
     |> ignore
-
-    0

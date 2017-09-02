@@ -1,7 +1,6 @@
-open System
+module Problem11
 
-[<EntryPoint>]
-let main argv = 
+let solution =
 
     //https://projecteuler.net/problem=11
 
@@ -54,7 +53,7 @@ let main argv =
                 yield (
                     let maxRows = maxOffset - rowOffset
                     let maxColumns = maxOffset - columnOffset
-                    let length = maxOffset - (maxRows -)
+                    let length = maxOffset - (maxRows - 0)
                     printfn "%i %i %i" rowOffset columnOffset length
                     [0..length]
                     |> List.map(fun j -> 
@@ -78,5 +77,3 @@ let main argv =
     //|> List.iter(fun n -> printfn "%A" n)
     |> List.max
     |> (fun n -> printfn "%i" n)
-
-    0

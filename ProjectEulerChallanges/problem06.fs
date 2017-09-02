@@ -1,7 +1,6 @@
-open System
+module Problem06
 
-[<EntryPoint>]
-let main argv = 
+let solution =
 
     //https://projecteuler.net/problem=6
 
@@ -17,5 +16,3 @@ let main argv =
         |> (fun x -> x * x)
 
     sqrOfSum - sumOfSqrs |> printfn "%i"
-
-    0

@@ -1,7 +1,6 @@
-open System
+module Problem13
 
-[<EntryPoint>]
-let main argv = 
+let solution =
 
     //https://projecteuler.net/problem=13
 
@@ -112,5 +111,3 @@ let main argv =
     |> string
     |> (fun x -> x.[0..9])
     |> printfn "%s"
-
-    0
