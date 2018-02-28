@@ -2,7 +2,7 @@ module Problem03
 open System.Web.Security.AntiXss
 
 let solution =
-    //https://projecteuler.net/problem=2
+    //https://projecteuler.net/problem=3
 
     //let testNumber = 13195L
     let testNumber = 600851475143L
