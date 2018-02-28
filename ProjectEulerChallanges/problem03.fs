@@ -17,7 +17,6 @@ let solution =
     seq { 3L .. 2L .. testNumber }
     |> Seq.filter(fun x -> isFactor testNumber x)
     |> Seq.filter(isPrime)
-    |> Seq.rev
-    |> Seq.head
+    |> Seq.max
 
 
