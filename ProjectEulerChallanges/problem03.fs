@@ -17,5 +17,7 @@ let solution =
     seq { 3L .. 2L .. testNumber }
     |> Seq.filter(fun x -> isFactor testNumber x)
     |> Seq.filter(isPrime)
-    |> Seq.iter(fun x -> printfn "%A" x)
+    |> Seq.rev
+    |> Seq.head
+
 
