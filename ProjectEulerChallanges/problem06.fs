@@ -8,8 +8,7 @@ let solution =
 
     let getSumOfSquares lowerNumber upperNumber = 
         { lowerNumber .. upperNumber }
-        |> Seq.map(fun x -> x * x)
-        |> Seq.sum
+        |> Seq.sumBy(fun x -> x * x)
     
     let getSquareOfSum lowerNumber upperNumber =
        { lowerNumber .. upperNumber }
