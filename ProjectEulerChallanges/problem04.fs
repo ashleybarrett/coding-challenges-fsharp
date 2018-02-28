@@ -3,8 +3,8 @@ module Problem04
 let solution =
     //https://projecteuler.net/problem=4
 
-    let uppernumber = 999
     let lowerNumber = 100
+    let uppernumber = 999
 
     let isPalindrome number = 
         let numberAsString = number |> string

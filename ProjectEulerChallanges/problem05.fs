@@ -1,10 +1,10 @@
 module Problem05
 
 let solution =
-    //https://projecteuler.net/problem=4
+    //https://projecteuler.net/problem=5
 
-    let upperNumber = 20
     let lowerNumber = 1
+    let upperNumber = 20
 
     let dividesByAll candiate lowerNumber upperNumber =
         { lowerNumber .. upperNumber }
