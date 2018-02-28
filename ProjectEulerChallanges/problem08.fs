@@ -1,4 +1,4 @@
-module Problem07
+module Problem08
 
 let solution =
     //https://projecteuler.net/problem=8
