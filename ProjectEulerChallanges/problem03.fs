@@ -10,10 +10,10 @@ let solution =
 
     let isPrime number = 
         let oneLess = number - 1L
-        seq { 2L .. oneLess }
+        { 2L .. oneLess }
         |> Seq.forall(fun x -> number % x <> 0L)
 
-    seq { 3L .. 2L .. testNumber }
+    { 3L .. 2L .. testNumber }
     |> Seq.filter(fun x -> isFactor testNumber x)
     |> Seq.filter(isPrime)
     |> Seq.max
