@@ -1,7 +1,7 @@
 module Problem09
 
 let solution =
-    //https://projecteuler.net/problem=8
+    //https://projecteuler.net/problem=9
 
     let targetNumber = 1000
 
