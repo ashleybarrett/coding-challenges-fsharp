@@ -17,7 +17,7 @@ let solution =
 
     1L
     |> Seq.unfold(fun x -> Some(x, x + 1L))
-    |> Seq.map(fun x -> [1L..x] |> Seq.sum)
+    |> Seq.map(fun x -> { 1L..x } |> Seq.sum)
     |> Seq.find(fun x -> getNumberOfDivisors x >= numberOfDivisors)
     |> ignore
 
