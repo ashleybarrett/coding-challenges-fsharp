@@ -1,5 +1,4 @@
-module Problem11
-open System.Xml.XPath
+module Problem13
 
 let solution =
     //https://projecteuler.net/problem=13
