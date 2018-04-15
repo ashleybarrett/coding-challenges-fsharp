@@ -6,7 +6,7 @@ let solution =
 
     2I ** limit
     |> string
-    |> Seq.sumBy(fun x -> x |> string |> int)
+    |> Seq.sumBy(string >> int)
     |> ignore
 
     0
