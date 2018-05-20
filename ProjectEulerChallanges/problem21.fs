@@ -8,6 +8,7 @@ let solution =
 
     let getSumOfDivisors number = 
         let half = number / 2L
+        
         { 1L .. half }
         |> Seq.filter(fun x -> number % x = 0L)
         |> Seq.sum
