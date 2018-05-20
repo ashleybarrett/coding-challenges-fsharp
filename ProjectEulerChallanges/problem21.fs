@@ -1,5 +1,4 @@
 module Problem21
-open System
 
 let solution =
     //https://projecteuler.net/problem=21
