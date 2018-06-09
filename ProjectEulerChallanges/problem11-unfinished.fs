@@ -59,31 +59,11 @@ let solution =
         [
             for row in 0 .. maxGridIndex do 
             for index in 0 .. maxGridIndex do 
-            for items in index + 1 .. maxGridIndex do 
-                yield printfn "%A %A %A" row index items
+            for nextRow in row + 1 .. maxGridIndex do
+                let nextIndex = (nextRow - row) + index
+
+                match nextIndex <= maxGridIndex with
+                | true -> yield printfn "%A %A %A %A" row index nextRow nextIndex
+                | _ -> ()
         ]
-        
-
-
-
-        grid
-        |> Seq.mapi(fun i x -> //i is the index of the grid row  x is each row of the grid
-            let indexsToSkip = i + 1
-            let subSetOfGrid = grid |> Seq.skip(indexsToSkip)
-
-            x 
-            |> Seq.mapi(fun ri r -> //ri is the index of the item in the row    r is item in the row
-
-
-
-                subSetOfGrid
-                |> Seq.mapi(fun si s -> // si is index of the row of the grid subset    s is the row of the grid subset
-                    let nextItemIndex = si + ri
-
-                    match nextItemIndex with
-                    | n when n <= maxGridIndex -> s.Item nextItemIndex
-                    | _ -> 0
-                )
-            )
-        )
     0
