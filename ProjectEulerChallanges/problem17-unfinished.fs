@@ -4,7 +4,6 @@ let solution =
 
     let oneToNine = 
         [
-            0, ""
             1, "One";
             2, "Two";
             3, "Three";
@@ -46,46 +45,10 @@ let solution =
     let thousand = "Thousand"
     let hundred = "Hundred"
 
-    let unwrapTryFind number =
-        match number with
-        | Some n -> n
-        | _ -> ""
-
-    let getTensWord tenNumber = tens.TryFind tenNumber |> unwrapTryFind
-
-    let getNumberOfUnitsWord unitNumber = oneToNine.TryFind unitNumber |> unwrapTryFind
-
-    let getTeenWord teenNumber = elevenToNineteen.Item teenNumber
-
-    let getWord number suffix = 
-        match number > 0 with
-        | true -> 
-            let numberOfUnitsWord = getNumberOfUnitsWord number
-            sprintf "%s%s" numberOfUnitsWord suffix
-        | _ -> ""
-
-    let numberToWords number = 
-
-        match number with
-        | n when n > 10 && n < 20 -> getTeenWord n
-        | _ ->
-            let numberOfThousands = number / 1000
-            let numberOfHundred = number / 100
-            let numberOfTens = number / 10
-            let numberOfUnits = number - (numberOfTens * 10)
-
-            //printfn "%i %i " numberOfTens numberOfUnits
-
-            let housandsWords = getWord numberOfThousands thousand
-            let hundredsWords = getWord numberOfHundred hundred
-            let tensWords = getTensWord numberOfTens
-            let unitWord = getNumberOfUnitsWord numberOfUnits
-
-            sprintf "%s%s%s%s" housandsWords hundredsWords tensWords unitWord
-
-    {1..200}
-    |> Seq.map numberToWords
-    |> Seq.iter(printfn "%s")
+    {1..5}
+    |> Seq.sumBy (fun n -> 
+        oneToNine.Item n |> (fun s -> s.Length)
+    )
     |> ignore
 
     0
