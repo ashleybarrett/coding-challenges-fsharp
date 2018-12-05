@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="ProjectEulerChallanges/*.fs" />
     <Compile Include="*.fs" />
   </ItemGroup>
 
