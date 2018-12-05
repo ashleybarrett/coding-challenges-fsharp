@@ -1,11 +1,13 @@
 module Problem01
+open System.IO
 
 let solution =
 
-    //https://projecteuler.net/problem=1
+    let filePath = "advent-of-code/2018/problem-01-frequencies.txt"
 
-    let isMultipleOf number mltipleNumber = number % mltipleNumber = 0
-
-    { 1 .. 999 }
-    |> Seq.filter(fun x -> isMultipleOf x 3 || isMultipleOf x 5)
+    File.ReadLines(filePath)
+    |> Seq.map(fun x -> x |> int)
     |> Seq.sum
+    |> ignore
+
+    0
