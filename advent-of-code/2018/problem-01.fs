@@ -3,7 +3,7 @@ open System.IO
 
 let solution =
 
-    let filePath = "advent-of-code/2018/problem-01-frequencies.txt"
+    let filePath = "advent-of-code/2018/problem-frequencies.txt"
 
     File.ReadLines(filePath)
     |> Seq.map(fun x -> x |> int)
