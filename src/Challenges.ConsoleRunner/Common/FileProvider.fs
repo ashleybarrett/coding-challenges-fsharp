@@ -2,4 +2,4 @@ module FileProvider
 
 open System.IO
 
-let getAllLinesInFile filePath = File.ReadLines(filePath)
+let getAllLinesInFile filePath = File.ReadAllLines(filePath)

@@ -7,7 +7,7 @@ let solution =
     let filePath = "src/Challenges.ConsoleRunner/AdventOfCode/2018/Day01/Input.txt"
 
     let getFileLines inputFilePath = 
-        File.ReadLines(inputFilePath) 
+        File.ReadAllLines(inputFilePath) 
         |> Seq.map(fun x -> x |> int)
         |> Seq.toList
 
