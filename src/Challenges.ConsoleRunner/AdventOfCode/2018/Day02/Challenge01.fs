@@ -14,13 +14,15 @@ let solution =
         |> (fun m -> if m then 1 else 0)
       )
 
-    let fileLinesMapped = 
+    let getFileLinesMapped = 
       File.ReadAllLines(filePath)
       |> Seq.map(fun x ->
           x.ToCharArray()
           |> Seq.countBy(id)
           |> Seq.map snd
       )
+
+    let fileLinesMapped = getFileLinesMapped
 
     countsByRepeat fileLinesMapped 2 * countsByRepeat fileLinesMapped 3
     
