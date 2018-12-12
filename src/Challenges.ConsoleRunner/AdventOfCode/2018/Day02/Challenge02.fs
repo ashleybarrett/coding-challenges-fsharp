@@ -27,7 +27,7 @@ let solution =
   )
   |> Seq.filter(fun x -> boxIdLength - (Array.length x) = 1)
   |> Seq.head
-  |> String.concat ""
+  |> Seq.reduce (+)
 
 
     
