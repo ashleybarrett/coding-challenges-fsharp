@@ -22,7 +22,7 @@ let solution =
   |> Seq.map(fun (o, i) ->
     o
     |> Array.zip i
-    |> Array.filter(fun (a, b) -> a = b)
+    |> Array.filter(fun (l, r) -> l = r)
     |> Array.map fst
   )
   |> Seq.filter(fun x -> boxIdLength - (Array.length x) = 1)
