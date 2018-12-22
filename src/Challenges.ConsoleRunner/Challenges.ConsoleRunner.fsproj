@@ -7,6 +7,8 @@
     <Compile Include="Common/FileProvider.fs" />
     <Compile Include="AdventOfCode/2018/Day01/Challenge01.fs" />
     <Compile Include="AdventOfCode/2018/Day01/Challenge02.fs" />
+    <Compile Include="AdventOfCode/2018/Day03/Challenge01.fs" />
+    <Compile Include="AdventOfCode/2018/Day04/Challenge01.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 </Project>
