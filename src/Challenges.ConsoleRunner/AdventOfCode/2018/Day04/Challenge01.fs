@@ -1,20 +1,19 @@
 module AdventOfCodeYear2018Day04Challenge01
 
-open System.IO
 open System
 open System.Text.RegularExpressions
+open System.IO
 
 let timestampRegex = new Regex @"\d{4}-\d{2}-\d{2}\s\d{2}\S\d{2}"
 let guardIdRegex = new Regex @"\d+"
 
-type LogEntryType = 
-  | WakeUp
-  | FallAsleep
-  | BeginsShift of int
+type LogEntryType = | WakeUp | FallAsleep | BeginsShift of int
 
 type GuardLog = { timestamp:DateTime; logEntryType: LogEntryType }
 
 type SleepyTime = { totalMinutesAsleep: int; minutesAsleep: int list }
+
+type solved = { partOne: int; partTwo: int }
 
 let solution =
 
@@ -60,49 +59,98 @@ let solution =
 
     { timestamp = timestamp; logEntryType = logType } 
 
-  File.ReadAllLines filePath
-  |> Seq.map mapToGuardLog
-  |> Seq.sortBy(fun x -> x.timestamp)
-  |> Seq.fold(fun (guardId, guardMap:Map<int, SleepyTime>, lastestFallAsleepTimestamp) guardLog -> 
-    match guardLog.logEntryType with
-    | FallAsleep -> (guardId, guardMap, guardLog.timestamp)
-    | LogEntryType.BeginsShift nextGuardId -> (nextGuardId, guardMap, lastestFallAsleepTimestamp)
-    | WakeUp -> 
-      let guardEntries = guardMap.TryFind guardId
+  (*let partOne = 
+    File.ReadAllLines filePath
+    |> Seq.map mapToGuardLog
+    |> Seq.sortBy(fun x -> x.timestamp)
+    |> Seq.fold(fun (guardId, guardMap:Map<int, SleepyTime>, lastestFallAsleepTimestamp) guardLog -> 
+      match guardLog.logEntryType with
+      | FallAsleep -> (guardId, guardMap, guardLog.timestamp)
+      | LogEntryType.BeginsShift nextGuardId -> (nextGuardId, guardMap, lastestFallAsleepTimestamp)
+      | WakeUp -> 
+        let guardEntries = guardMap.TryFind guardId
 
-      let sleptFor = (guardLog.timestamp - lastestFallAsleepTimestamp).Minutes
-      let minutesSleptFor = [lastestFallAsleepTimestamp.Minute..guardLog.timestamp.Minute]
+        let sleptFor = (guardLog.timestamp - lastestFallAsleepTimestamp).Minutes
+        let minutesSleptFor = [lastestFallAsleepTimestamp.Minute..guardLog.timestamp.Minute]
 
-      match guardEntries with
-      | Some s -> 
-        let sleepyTime = { 
-          totalMinutesAsleep = s.totalMinutesAsleep + sleptFor; 
-          minutesAsleep = List.append s.minutesAsleep minutesSleptFor 
-        }
+        match guardEntries with
+        | Some s -> 
+          let sleepyTime = { 
+            totalMinutesAsleep = s.totalMinutesAsleep + sleptFor; 
+            minutesAsleep = List.append s.minutesAsleep minutesSleptFor 
+          }
 
-        (guardId, guardMap.Add(guardId, sleepyTime), lastestFallAsleepTimestamp)
-      | None -> 
-        let sleepyTime = { totalMinutesAsleep = sleptFor; minutesAsleep = minutesSleptFor }
-        (guardId, guardMap.Add(guardId, sleepyTime), lastestFallAsleepTimestamp)
+          (guardId, guardMap.Add(guardId, sleepyTime), lastestFallAsleepTimestamp)
+        | None -> 
+          let sleepyTime = { totalMinutesAsleep = sleptFor; minutesAsleep = minutesSleptFor }
+          (guardId, guardMap.Add(guardId, sleepyTime), lastestFallAsleepTimestamp)
 
-  ) (0, Map.empty<int, SleepyTime>, DateTime.MinValue) //GuardId, Map of guards
-  |> (fun x -> 
-    let _, guardMap, _ = x
-    guardMap
-  )
-  |> (fun x -> 
-    x
-    |> Map.toList
-    |> List.sortByDescending(fun s -> s |> snd |> (fun q -> q.totalMinutesAsleep))
-    |> List.head
-    |> (fun (i, v) ->
-       let mostMinuteAsleep =
-         v
-         |> (fun x -> x.minutesAsleep)
-         |> List.countBy id
-         |> List.sortByDescending snd
-         |> List.head
-         |> fst
-       (i, mostMinuteAsleep)
+    ) (0, Map.empty<int, SleepyTime>, DateTime.MinValue) //GuardId, Map of guards
+    |> (fun x -> 
+      let _, guardMap, _ = x
+      guardMap
     )
-  )
+    |> (fun x -> 
+      x
+      |> Map.toList
+      |> List.sortByDescending(fun s -> s |> snd |> (fun q -> q.totalMinutesAsleep))
+      |> List.head
+      |> (fun (i, v) ->
+         let mostMinuteAsleep =
+           v
+           |> (fun x -> x.minutesAsleep)
+           |> List.countBy id
+           |> List.sortByDescending snd
+           |> List.head
+           |> fst
+         (i, mostMinuteAsleep)
+      )
+  )*)
+
+  let partTwo = 
+    File.ReadAllLines filePath
+    |> Seq.map mapToGuardLog
+    |> Seq.sortBy(fun x -> x.timestamp)
+    |> Seq.fold(fun (guardId, guardMap:Map<int, SleepyTime>, lastestFallAsleepTimestamp) guardLog -> 
+      match guardLog.logEntryType with
+      | FallAsleep -> (guardId, guardMap, guardLog.timestamp)
+      | LogEntryType.BeginsShift nextGuardId -> (nextGuardId, guardMap, lastestFallAsleepTimestamp)
+      | WakeUp -> 
+        let guardEntries = guardMap.TryFind guardId
+
+        let sleptFor = (guardLog.timestamp - lastestFallAsleepTimestamp).Minutes
+        let minutesSleptFor = [lastestFallAsleepTimestamp.Minute..guardLog.timestamp.Minute]
+
+        match guardEntries with
+        | Some s -> 
+          let sleepyTime = { 
+            totalMinutesAsleep = s.totalMinutesAsleep + sleptFor; 
+            minutesAsleep = List.append s.minutesAsleep minutesSleptFor 
+          }
+
+          (guardId, guardMap.Add(guardId, sleepyTime), lastestFallAsleepTimestamp)
+        | None -> 
+          let sleepyTime = { totalMinutesAsleep = sleptFor; minutesAsleep = minutesSleptFor }
+          (guardId, guardMap.Add(guardId, sleepyTime), lastestFallAsleepTimestamp)
+
+    ) (0, Map.empty<int, SleepyTime>, DateTime.MinValue) //GuardId, Map of guards
+    |> (fun x -> 
+      let _, guardMap, _ = x
+      guardMap
+      |> Map.toList
+    )
+    |> List.map(fun x ->
+      let mostSleptMinute = 
+        snd x
+        |> (fun y -> y.minutesAsleep)
+        |> List.countBy id
+        |> List.sortByDescending snd
+        |> List.head
+
+      (fst x, mostSleptMinute)
+    )
+    |> List.sortByDescending(fun (_, (_, timesSlept)) -> timesSlept)
+    |> List.head
+    |> (fun (guardId, (mostSleptMinute, _)) -> guardId * mostSleptMinute)
+
+  0
