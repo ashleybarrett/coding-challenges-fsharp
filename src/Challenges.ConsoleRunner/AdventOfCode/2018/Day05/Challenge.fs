@@ -24,19 +24,12 @@ let solution =
         |> Array.fold(fun chars currentChar -> 
             match chars with
             | [||] -> appendToChars chars currentChar
-            | [|c|] -> 
-                match charsMatch c currentChar with
-                | false -> appendToChars chars currentChar
-                | _ -> Array.empty    
-            | _ -> 
+            | _ ->
                 let lastChar = Array.last chars
-                
                 match charsMatch lastChar currentChar with
                 | false -> appendToChars chars currentChar
-                | _ ->                     
-                    let len = chars.Length - 2
-                    chars.[0..len]
-
+                | _ ->  
+                    if chars.Length > 1 then chars.[0..chars.Length - 2] else Array.empty
         ) [||]
         |> Array.length
 
