@@ -12,15 +12,10 @@ let solution =
 
     let getFileInput = File.ReadAllLines filePath
 
-    let fileLineInput = getFileInput |> Array.map(fun x -> x.ToCharArray()) |> Array.head
+    let fileLineInput = getFileInput |> Array.map(fun x -> x.ToCharArray()) |> Array.head |> Array.map int
 
     let partOneSolved = 
-        let charsMatch (l:char) (r:char) =
-            Char.IsLetter(l) && Char.IsLetter(r)
-            &&
-            (Char.IsLower(l) && Char.IsUpper(r) && Char.ToLower(l) = Char.ToLower(r))
-            ||
-            (Char.IsUpper(l) && Char.IsLower(r) && Char.ToLower(l) = Char.ToLower(r))
+        let charsMatch (l:int) (r:int) = abs(l - r) = 32
 
         let appendToChars chars c = Array.append chars [|c|]
 
