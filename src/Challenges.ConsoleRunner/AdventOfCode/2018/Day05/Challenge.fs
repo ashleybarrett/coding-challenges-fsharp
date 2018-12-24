@@ -16,7 +16,7 @@ let solution =
         |> Array.head 
 
     let partOneSolved = 
-        let charsMatch (l:int) (r:int) = abs(l - r) = 32
+        let charsMatch l r = abs(l - r) = 32
 
         let appendToChars chars c = Array.append chars [|c|]
 
