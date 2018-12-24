@@ -1,7 +1,6 @@
 module AdventOfCodeYear2018Day05Challenge
 
 open System.IO
-open System
 open Types
 
 let solution = 
