@@ -26,8 +26,7 @@ let solution =
                 let lastChar = Array.last chars
                 match abs(lastChar - currentChar) = 32 with
                 | false -> appendToChars chars currentChar
-                | _ ->  
-                    if chars.Length > 1 then chars.[0..chars.Length - 2] else Array.empty
+                | _ -> if chars.Length > 1 then chars.[0..chars.Length - 2] else Array.empty
         ) [||]
         |> Array.length
 
