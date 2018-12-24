@@ -12,7 +12,10 @@ let solution =
 
     let getFileInput = File.ReadAllLines filePath
 
-    let fileLineInput = getFileInput |> Array.map(fun x -> x.ToCharArray()) |> Array.head |> Array.map int
+    let fileLineInput = 
+        getFileInput 
+        |> Array.map(fun x -> x.ToCharArray() |> Array.map int) 
+        |> Array.head 
 
     let partOneSolved = 
         let charsMatch (l:int) (r:int) = abs(l - r) = 32
