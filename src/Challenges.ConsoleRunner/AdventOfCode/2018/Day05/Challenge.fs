@@ -16,8 +16,6 @@ let solution =
         |> Array.head 
 
     let partOneSolved = 
-        let charsMatch l r = abs(l - r) = 32
-
         let appendToChars chars c = Array.append chars [|c|]
 
         fileLineInput
@@ -26,7 +24,7 @@ let solution =
             | [||] -> appendToChars chars currentChar
             | _ ->
                 let lastChar = Array.last chars
-                match charsMatch lastChar currentChar with
+                match abs(lastChar - currentChar) = 32 with
                 | false -> appendToChars chars currentChar
                 | _ ->  
                     if chars.Length > 1 then chars.[0..chars.Length - 2] else Array.empty
