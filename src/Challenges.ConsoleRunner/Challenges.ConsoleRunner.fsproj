@@ -4,13 +4,13 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Common/FileProvider.fs" />
     <Compile Include="Common/Types.fs" />
     <Compile Include="AdventOfCode/2018/Day01/Challenge.fs" />
     <Compile Include="AdventOfCode/2018/Day02/Challenge.fs" />
     <Compile Include="AdventOfCode/2018/Day03/Challenge01.fs" />
     <Compile Include="AdventOfCode/2018/Day04/Challenge01.fs" />
     <Compile Include="AdventOfCode/2018/Day04/Challenge02.fs" />
-    <Compile Include="Program.fs" />    
+    <Compile Include="AdventOfCode/2018/Day05/Challenge.fs" />
+    <Compile Include="Program.fs" />
   </ItemGroup>
 </Project>

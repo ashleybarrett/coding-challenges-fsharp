@@ -1,4 +1,4 @@
-module AdventOfCodeYear2018Day02Challenge01
+module AdventOfCodeYear2018Day02Challenge
 
 open System.IO
 open Types
