@@ -6,8 +6,6 @@ open Types
 
 let solution = 
 
-    //let charRegexMatch = 
-
     let filePath = "src/Challenges.ConsoleRunner/AdventOfCode/2018/Day05/Input.txt"
 
     let getFileInput = File.ReadAllLines filePath
