@@ -2,22 +2,21 @@ module AdventOfCodeYear2018Day05Challenge
 
 open System.IO
 open Types
+open System
+open System.Text.RegularExpressions
 
 let solution = 
 
     let filePath = "src/Challenges.ConsoleRunner/AdventOfCode/2018/Day05/Input.txt"
 
-    let getFileInput = File.ReadAllLines filePath
+    let getFileInput = File.ReadAllLines filePath |> Array.head
+    
+    let mapInputNumericCharValue (input:string) = input.ToCharArray() |> Array.map int
 
-    let fileLineInput = 
-        getFileInput 
-        |> Array.map(fun x -> x.ToCharArray() |> Array.map int) 
-        |> Array.head 
-
-    let partOneSolved = 
+    let createPolymer inputChars = 
         let appendToChars chars c = Array.append chars [|c|]
 
-        fileLineInput
+        inputChars
         |> Array.fold(fun chars currentChar -> 
             match chars with
             | [||] -> appendToChars chars currentChar
@@ -27,6 +26,25 @@ let solution =
                 | false -> appendToChars chars currentChar
                 | _ -> if chars.Length > 1 then chars.[0..chars.Length - 2] else Array.empty
         ) [||]
-        |> Array.length
+        |> Array.map char
 
-    { partOne = partOneSolved; partTwo = 0 }
+    let partOneSolved = 
+        getFileInput 
+        |> mapInputNumericCharValue 
+        |> createPolymer
+        |> Array.length
+    
+    let partTwoSolved = 
+        let input = getFileInput
+
+        [|'A'..'Z'|]
+        |> Array.map(fun x ->
+            Regex.Replace(input, x.ToString(), "", RegexOptions.IgnoreCase)
+            |> mapInputNumericCharValue
+            |> createPolymer
+            |> Array.length
+        )
+        |> Array.sort
+        |> Array.head
+
+    { partOne = partOneSolved; partTwo = partTwoSolved }
