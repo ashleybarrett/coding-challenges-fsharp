@@ -3,7 +3,6 @@ module AdventOfCodeYear2018Day05Challenge
 open System.IO
 open Types
 open System
-open System.Text.RegularExpressions
 
 let solution = 
 
@@ -35,16 +34,16 @@ let solution =
         |> Array.length
     
     let partTwoSolved = 
-        let input = getFileInput
-
-        [|'A'..'Z'|]
-        |> Array.map(fun x ->
-            Regex.Replace(input, x.ToString(), "", RegexOptions.IgnoreCase)
-            |> mapInputNumericCharValue
+        let input = getFileInput |> mapInputNumericCharValue
+        
+        [|65..90|] //Ascii a - z
+        |> Array.map(fun lowercase ->
+            let uppercase = lowercase + 32
+            input
+            |> Array.filter(fun c -> c <> uppercase && c <> lowercase)
             |> createPolymer
             |> Array.length
         )
-        |> Array.sort
-        |> Array.head
+        |> Array.min
 
     { partOne = partOneSolved; partTwo = partTwoSolved }
