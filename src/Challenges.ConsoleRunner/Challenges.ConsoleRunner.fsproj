@@ -4,6 +4,7 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Common/FileInputProvider.fs" />
     <Compile Include="Common/Types.fs" />
     <Compile Include="AdventOfCode/2018/Day01/Challenge.fs" />
     <Compile Include="AdventOfCode/2018/Day02/Challenge.fs" />

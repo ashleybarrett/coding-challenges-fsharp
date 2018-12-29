@@ -2,19 +2,20 @@ module AdventOfCodeYear2018Day01Challenge
 
 open System.IO
 open Types
+open FileInputProvider
 
 let solution =
 
     let filePath = "src/Challenges.ConsoleRunner/AdventOfCode/2018/Day01/Input.txt"
 
-    let mapInputLines = File.ReadAllLines(filePath) |> Seq.map int
+    let input = readInputAndMapToInts filePath
 
-    let partOneSolved = mapInputLines |> Seq.sum
+    let partOneSolved = input |> Seq.sum
     
     let partTwoSolved = 
         seq{
             while(true) do
-                yield! mapInputLines
+                yield! input
         }
         |> Seq.scan(fun (currentFreq, seenFreqs) lineItem ->
             let nextFreq = currentFreq + lineItem
