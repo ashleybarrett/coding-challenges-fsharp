@@ -1,6 +1,5 @@
 module AdventOfCodeYear2018Day01Challenge
 
-open System.IO
 open Types
 open FileInputProvider
 
